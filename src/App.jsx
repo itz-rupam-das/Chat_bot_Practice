@@ -3,13 +3,36 @@ import ChatBox from "./ChatBox";
 import ChatMessage from "./ChatMessage";
 
 const App = () => {
+  const chatMessages = [
+    {
+      message: "Hello there",
+      sender: "user",
+    },
+    {
+      message: "I am a bot",
+      sender: "bot",
+    },
+    {
+      message: "What is the weather today?",
+      sender: "user",
+    },
+    {
+      message: "It's raining outside",
+      sender: "bot",
+    },
+  ];
+
   return (
     <>
       <ChatBox />
-      <ChatMessage message="Hello there" sender="user" />
-      <ChatMessage message="Iam a bot" sender="bot" />
-      <ChatMessage message="What is the weather today?" sender="user" />
-      <ChatMessage message="It's raining outside" sender="bot" />
+      {chatMessages.map((chatMessage) => {
+        return (
+          <ChatMessage
+            message={chatMessage.message}
+            sender={chatMessage.sender}
+          />
+        );
+      })}
     </>
   );
 };
